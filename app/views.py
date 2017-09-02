@@ -1,39 +1,36 @@
-from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
-from sqlalchemy.orm import sessionmaker
-engine = create_engine('sqlite:///tutorial.db', echo=True)
-
-app = Flask(__name__)
+from app import app, login_manager
+from models import User
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
 
 @app.route('/')
+@login_required
 def home():
-    if not session.get('logged_in'):
-        return render_template('login.html')
+    return "Hello Boss!  <a href='/logout'>Logout</a>"
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        e_mail = request.form['email']
+        p_word = request.form['password']
+        user = User.query.filter_by(email=e_mail).first()
+        if p_word == user.password:
+            login_user(user)
+            return redirect("/")
+        else:
+            return flash("Wrong email or password")
     else:
-        return "Hello Boss!  <a href='/logout'>Logout</a>"
-
-@app.route('/login', methods=['POST'])
-def do_login():
-
-    POST_USERNAME = str(request.form['username'])
-    POST_PASSWORD = str(request.form['password'])
-
-    Session = sessionmaker(bind=engine)
-    s = Session()
-    query = s.query(User).filter(User.username.in_([POST_USERNAME]), User.password.in_([POST_PASSWORD]) )
-    result = query.first()
-    if result:
-        session['logged_in'] = True
-    else:
-        flash('wrong password!')
+        return render_template("login.html")
     return home()
 
 @app.route("/logout")
+@login_required
 def logout():
-    session['logged_in'] = False
+    logout_user()
     return home()
 
-if __name__ == "__main__":
-    app.secret_key = os.urandom(12)
-    app.run(debug=True,host='0.0.0.0', port=4000)
+@login_manager.user_loader
+def load_user(userid):
+    return User.query.get(int(userid))
+

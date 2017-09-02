@@ -1,6 +1,5 @@
-import datetime
-import config
-from create_db import db, User
+from create_db import db
+from models import User
 admin = User('admin', 'admin')
 guest = User('student', 'student')
 db.session.add(admin)
