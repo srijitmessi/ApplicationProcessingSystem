@@ -15,13 +15,17 @@ def login():
         e_mail = request.form['email']
         p_word = request.form['password']
         user = User.query.filter_by(email=e_mail).first()
+        if not p_word:
+            return render_template("login.html",error="Please Enter Password")
+        if user is None:
+            return render_template("login.html",error="Invalid Email")
         if p_word == user.password:
             login_user(user)
             return redirect("/")
         else:
-            return flash("Wrong email or password")
+            return render_template("login.html",error="Invalid Password")
     else:
-        return render_template("login.html")
+        return render_template("login.html",error=None)
     return home()
 
 @app.route("/logout")
