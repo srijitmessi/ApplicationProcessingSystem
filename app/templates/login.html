@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <title>ARS Login</title>
 
-
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
-
-    <link rel="stylesheet" href="../static/style-login.css">
-
+    <link rel="stylesheet" href="../static/css/style-login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="../static/js/login.js"></script>
 
 </head>
 
 <body>
+<div id ="alert_placeholder">
+</div>
 <div class="login-wrap">
     <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
         <div class="login-form">
-            <form method="post">
+            <form method="post" role="form" action="loginUser">
                 <div class="sign-in-htm">
                     <div class="group">
                         <label for="user" class="label">Email</label>
@@ -34,11 +36,6 @@
                     <div class="group">
                         <input type="submit" class="button" value="Log In">
                     </div>
-                    {% if error %}
-                    <div class="foot-text">
-                        <strong>Error:</strong> {{ error }}
-                    </div>
-                    {% endif %}
                     <div class="foot-lnk">
                         <a href="" class="forgot-pass-lnk">Forgot Password?
                             <div class="forgot-pass-text">

@@ -1,7 +1,7 @@
 from create_db import db
-from models import User
-admin = User('admin', 'admin')
-guest = User('student', 'student')
+from app.models import User
+admin = User('admin', 'admin','fac')
+guest = User('student', 'student','stud')
 db.session.add(admin)
 db.session.add(guest)
 db.session.commit()
