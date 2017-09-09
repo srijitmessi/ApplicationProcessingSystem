@@ -1,7 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
 from app import app, login_manager
-from models import User
+from app.models import User
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
 
 @app.route('/')
