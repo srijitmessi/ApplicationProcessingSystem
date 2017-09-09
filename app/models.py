@@ -41,4 +41,11 @@ class Faculty(db.Model):
 
     def __repr__(self):
         return self.email
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(400))
+    createdBy = db.Column(db.String(20))
+    sentTo = db.Column(db.String(20))
+    readStatus = db.Column(db.Boolean)
+    timeCreated = db.Column(db.DateTime, CheckConstraint())
 
