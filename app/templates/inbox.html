@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inbox</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/materialize.min.css">
+        <link rel="stylesheet" href="../static/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0">
+    </head>
+    <body class="grey darken-3">
+       <header>
+        <div class="navbar-fixed">
+            <nav class="red darken-1">
+           <div class="nav-wrapper">
+               <a href="#" class="brand-logo"><img src="assets/img/logo.PNG" width="50" height="50"></a>               
+               
+               <ul class="right hide-on-med-and-down">
+                   <li style="position:absolute;width:500px;left:50%;margin-left:-250px;">
+                   <form>
+                   <div class="card search" style="box-shadow:none;background:rgba(0,0,0,0.3);">
+                   <input id="search" type="search" placeholder="Search" class="autocomplete" autocomplete="off">
+                   </div>
+                   </form>
+                   </li>
+                   <li><a href="#"><i class="material-icons mi-notifications"></i></a></li>
+                   <li><a href="#"><i class="material-icons mi-apps"></i></a></li>
+                   <!-- Dropdown Trigger -->
+                   <li>
+                       <a class="dropdown-button" href="#" data-activates="drop">
+                           <img class="left circle avatar" src="../static/img/prof.jpeg">
+                           Username
+                           <i class="material-icons right mi-arrow-down"></i>
+                       </a>
+                   </li>
+                   <ul id="drop" class="dropdown-content grey darken-3">
+                       <li><a href="#">Link 1</a></li>
+                       <li><a href="#">Link 2</a></li>
+                       <li><a href="#">Link 3</a></li>
+                   </ul>
+                </ul>
+            </div>
+        </nav>
+        </div>
+       </header>
+       <main>
+        <aside>
+           <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="slide-out" class="side-nav fixed">
+                <li class="center-align">
+                    <a class="waves-effect waves-light btn red darken-1 cmp">compose</a>
+                </li>
+                <li class="divider"></li>
+                <li class="active">
+                    <a href="#"><i class="material-icons left red-text mi-inbox"></i>Inbox<span class="badge new red">99</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="material-icons left amber-text mi-stars"></i>Starred<span class="badge">15</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="material-icons left purple-text mi-drafts"></i>Drafts<span class="badge">22</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="material-icons left green-text mi-send"></i>Sent<span class="badge">35</span></a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#"><i class="material-icons left indigo-text mi-restore"></i>Trash</a>
+                </li>
+                <li>
+                    <a href="#"><i class="material-icons left orange-text text-accent-4 mi-warning"></i>Spam<span class="badge">100</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="material-icons left pink-text text-darken-4 mi-archive"></i>Archived</a>
+                </li>
+            </ul>
+        </aside>
+        <section>
+            <div class="wrapper">
+                <div class="row">
+                   <div class="col s6" style="padding:0;">
+                    <a class="btn tooltipped red darken-1 waves-effect waves-light" href="#" data-tooltip="Refresh" onclick="window.location.reload();"><i class="material-icons mi-refresh"></i></a>
+                    <a class="btn tooltipped red darken-1 waves-effect waves-light" href="#" data-tooltip="Delete"><i class="material-icons mi-delete"></i></a>
+                    <a class="btn tooltipped red darken-1 waves-effect waves-light" href="#" data-tooltip="Report"><i class="material-icons mi-report"></i></a>
+                    <a class="btn tooltipped red darken-1 waves-effect waves-light" href="#" data-tooltip="Mark as read"><i class="material-icons mi-done-all"></i></a>
+                </div>
+                   <div class="col s6 right-align" style="padding:0;">
+                    <span class="white-text con-no">1-10 of 100</span>
+                    <a class="btn tooltipped red darken-1 waves-effect waves-light sb" href="#" data-tooltip="Previous">
+                        <i class="material-icons mi-chevron-left"></i>
+                    </a>
+                    <a class="btn tooltipped red darken-1 waves-effect waves-light sb" href="#" data-tooltip="Next">
+                        <i class="material-icons mi-chevron-right"></i>
+                    </a>
+                </div>
+                </div>
+                <table class="highlight white" id="msglist">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form>
+                                    <input id="cb1" type="checkbox" class="filled-in" checked>
+                                    <label for="cb1"></label>
+                                </form>
+                            </td>
+                            <td>Sender's name</td>
+                            <td>
+                                <span>Subject</span><span> - This is the message content</span>
+                            </td>
+                            <td>
+                                <span class="time">11:27 pm</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form>
+                                    <input id="cb2" type="checkbox" class="filled-in">
+                                    <label for="cb2"></label>
+                                </form>
+                            </td>
+                            <td>Sender's name</td>
+                            <td>
+                                <span>Subject</span><span> - This is the message content</span>
+                            </td>
+                            <td>
+                                <span class="time">12:25 am</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form>
+                                    <input id="cb3" type="checkbox" class="filled-in">
+                                    <label for="cb3"></label>
+                                </form>
+                            </td>
+                            <td>Sender's name</td>
+                            <td>
+                                <span>Subject</span><span> - This is the message content</span>
+                            </td>
+                            <td>
+                                <span class="time">11:27 pm</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form>
+                                    <input id="cb4" type="checkbox" class="filled-in">
+                                    <label for="cb4"></label>
+                                </form>
+                            </td>
+                            <td>Sender's name</td>
+                            <td>
+                                <span>Subject</span><span> - This is the message content</span>
+                            </td>
+                            <td>
+                                <span class="time">11:27 pm</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form>
+                                    <input id="cb5" type="checkbox" class="filled-in" checked>
+                                    <label for="cb5"></label>
+                                </form>
+                            </td>
+                            <td>Sender's name</td>
+                            <td>
+                                <span>Subject</span><span> - This is the message content</span>
+                            </td>
+                            <td>
+                                <span class="time">11:27 pm</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form>
+                                    <input id="cb6" type="checkbox" class="filled-in" checked>
+                                    <label for="cb6"></label>
+                                </form>
+                            </td>
+                            <td>Sender's name</td>
+                            <td>
+                                <span>Subject</span><span> - This is the message content</span>
+                            </td>
+                            <td>
+                                <span class="time">11:27 pm</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <a class="btn-floating btn-large waves-effect waves-light red fab modal-trigger" href="#compose"><i class="material-icons">add</i></a>
+                
+                <div id="compose" class="modal">
+                    <div class="modal-header red darken-2">
+                       <div class="modal-heading">
+                        <span>Compose Message</span>
+                        <i class="material-icons mi-close right modal-close"></i>
+                       </div>
+                    </div>
+                    <div class="modal-wrapper">
+                        <div class="modal-content">
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="input-field">
+                                    <input id="mail_to" type="text">
+                                    <label for="mail_to">To</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="mail_sub" type="text">
+                                    <label for="mail_sub">Subject</label>
+                                </div>
+                                <div class="input-field">
+                                    <textarea id="mail_msg" class="materialize-textarea"></textarea>
+                                    <label for="mail_msg">Message</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-flat right btn-waves waves-effect">Send</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       </main>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.tooltipped').tooltip({delay: 100});
+                $(".button-collapse").sideNav();
+                $(".dropdown-button").dropdown({
+                    constrainWidth: true,
+                    belowOrigin: true,
+                    alignment: 'right'
+                });
+                $('.modal').modal({
+                    endingTop : "20%"
+                });
+                $('select').material_select();
+                
+                $('#search').autocomplete({
+                    data: {
+                        "Apple": null,
+                        "Microsoft": null,
+                        "Google": 'https://placehold.it/250x250'
+                    },
+                    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+                    onAutocomplete: function(val) {
+                        // Callback function when value is autcompleted.
+                    },
+                    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+                });
+            })
+
+        </script>
+    </body>
+</html>
