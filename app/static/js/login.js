@@ -1,19 +1,23 @@
-
+function alert(msg) {
+	$('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">x</a><span>' + msg + '</span></div>')
+	console.log(msg);
+}
+var alert;
 bootstrap_alert = function() {}
 bootstrap_alert.warning = function(message) {
             $('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
         };
- $(document).ready({
-   $('#loginForm').submit(function(){
-		var email = $('#email').val();
-		var pass = $('#password').val();
+$(function(){
+	$('button').click(function(){
+		var email = $('#user').val();
+		var pass = $('#pass').val();
 		$.ajax({
 			url: '/loginUser',
-			data: 'json',
+			data: {'email':email, 'password': pass},
 			type: 'POST',
 			success: function(response){
-			    console.log(response);
-				bootstrap_alert.warning(response.status);
+				console.log(response);
+				alert($.parseJSON(response).status);
 			},
 			error: function(error){
 				console.log(error);
@@ -21,4 +25,3 @@ bootstrap_alert.warning = function(message) {
 		});
 	});
 });
-
