@@ -1,8 +1,13 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort, jsonify, json
 import os
 from app import app, login_manager
+<<<<<<< HEAD
+from app.models import User
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
+=======
 from app.models import *
 from flask_login import current_user, login_required, login_user, logout_user
+>>>>>>> origin/master
 
 @app.route('/')
 @login_required
