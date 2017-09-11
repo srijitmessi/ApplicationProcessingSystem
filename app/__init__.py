@@ -6,6 +6,7 @@ import config, os
 app = Flask(__name__)
 app.secret_key=os.urandom(12)
 app.config['SQLALCHEMY_DATABASE_URI'] = config.database_path
+app.config['SQLALCHEMY_MIGRATE_REPO'] = config.db_repository
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
